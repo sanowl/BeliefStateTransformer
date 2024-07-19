@@ -1,7 +1,4 @@
 import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader, TensorDataset
 
 def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs, device):
     best_val_loss = float('inf')
