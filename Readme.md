@@ -20,7 +20,7 @@ The research paper demonstrates that transformers trained on next-token predicti
 
 6. **Training Dynamics**: Includes functionality to track how belief state representations change during the training process.
 
-7. **Future Prediction Capability**: Analyzes the model's ability to predict the entire future, not just the next token, as discussed in the paper.
+7. **Future Prediction Capability**:
 
 8. **Mixed State Presentation (MSP) Structure**: Provides tools to examine and visualize the MSP structure of the underlying processes.
 
