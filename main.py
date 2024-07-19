@@ -12,6 +12,11 @@ def main():
     # Generate data
     states, observations = process.generate_sequence(10000)
     
+    # Convert observations to integers if they're not already
+    if isinstance(observations[0], str):
+        token_to_int = {token: i for i, token in enumerate(process.tokens)}
+        observations = list(map(lambda token: token_to_int[token], observations))
+    
     # Prepare data for transformer
     src = torch.tensor(observations[:-1], dtype=torch.long).unsqueeze(1)
     tgt = torch.tensor(observations[1:], dtype=torch.long).unsqueeze(1)
@@ -29,7 +34,7 @@ def main():
     num_layers = 4
     
     # Initialize model
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     model = SimpleTransformer(num_tokens, dim_model, num_heads, num_layers).to(device)
     
     # Train model
