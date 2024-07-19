@@ -40,7 +40,7 @@ def main():
     # Train model
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-    train_model(model, tain_loader, val_loader, criterion, optimizer, num_epochs=100, device=device)
+    train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=100, device=device)
     
     # Analyze model
     r2_score = analyze_model(model, states, observations, device)
